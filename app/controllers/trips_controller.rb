@@ -1,18 +1,18 @@
 class TripsController < ApplicationController
   def index
-    @trip = Trips.all.order(:name)
+    @trip = Trip.all.order(:date)
   end
 
   def show
-    @trip = Trips.find_by(id: params[:id].to_i)
+    @trip = Trip.find_by(id: params[:id].to_i)
   end
 
   def new
-    @trip = Trips.new
+    @trip = Trip.new
   end
 
   def create
-    trip = Trips.new(trip_params) #instantiate a new book
+    trip = Trip.new(trip_params) #instantiate a new book
 
     if trip.save
       redirect_to trip_path(trip.id)
@@ -22,18 +22,18 @@ class TripsController < ApplicationController
   end
 
   def edit
-    @trip = Trips.find_by(id: params[:id].to_i)
+    @trip = Trip.find_by(id: params[:id].to_i)
   end
 
   def update
-    trip = Trips.find_by(id: params[:id].to_i)
+    trip = Trip.find_by(id: params[:id].to_i)
     trip.update(trip_params)
 
     redirect_to trip_path(trip.id)
   end
 
   def destroy
-    trip_to_delete = Trips.find_by(id: params[:id].to_i)
+    trip_to_delete = Trip.find_by(id: params[:id].to_i)
     trip_to_delete.destroy
 
     redirect_to trips_path
