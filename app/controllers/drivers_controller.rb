@@ -40,7 +40,6 @@ class DriversController < ApplicationController
   def destroy
     @deleted_driver = Driver.find_by(id: params[:id].to_i)
     @deleted_driver.destroy
-    redirect_to drivers_path
   end
 
   private

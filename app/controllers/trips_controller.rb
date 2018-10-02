@@ -39,8 +39,6 @@ class TripsController < ApplicationController
   def destroy
     @deleted_trip = Trip.find_by(id: params[:id].to_i)
     @deleted_trip.destroy
-
-    redirect_to trips_path
   end
 
   private
