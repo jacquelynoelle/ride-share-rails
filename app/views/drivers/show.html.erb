@@ -1,2 +1,27 @@
-<h1>Drivers#show</h1>
-<p>Find me in app/views/drivers/show.html.erb</p>
+<h1>Driver Details</h1>
+
+<h2><%= @driver.name %></h2>
+
+<ul>
+  <li>
+    ID: <%= @driver.id %>
+  </li>
+  <li>
+    VIN: <%= @driver.vin %>
+  </li>
+  <li>
+    Total Earnings: [[TBD CALL TOTAL_EARNINGS METHOD]]
+  </li>
+  <li>
+    Rating: [[TBD CALL AVERAGE_RATING METHOD]]
+  </li>
+</ul>
+
+<ul>
+  <li><%= link_to "Edit", edit_driver_path(@driver.id) %></li>
+  <li><%= link_to "Delete", driver_path(@driver.id), method: :delete %></li>
+</ul>
+
+<h2>Driver's Trips  [[TBD CALL DRIVEN_TRIPS METHOD] this should display as a list and you can click on each trip for details</h2>
+
+<p>Render partial here of trips?</p>
