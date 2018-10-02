@@ -1,2 +1,16 @@
-<h1>Passengers#show</h1>
-<p>Find me in app/views/passengers/show.html.erb</p>
+<h1>Passenger Detail</h1>
+
+<h2><%= @passenger.name %></h2>
+
+<p>ID: <%= @passenger.id %></p>
+<p>Phone number: <%= @passenger.phone_num %></p>
+<p>Total spending: [[TBD CALL TOTAL_SPENDING METHOD]]</p>
+
+<ul>
+  <li><%= link_to "Edit", edit_passenger_path(@passenger.id) %></li>
+  <li><%# link_to "Delete", passenger_path(passenger.id), method: delete %></li>
+</ul>
+
+<h2>Passenger's Trips</h2>
+
+<p>Render partial here of trips?</p>
