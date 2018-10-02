@@ -12,5 +12,12 @@ class Driver < ApplicationRecord
     return total_earnings.round(2)
   end
 
+  def average_rating
+    driven_trips = list_trips
+    ratings = driven_trips.map { |trip| trip.rating}
+    average_rating = ratings.sum.to_f / ratings.length
+    return average_rating.round(1)
+  end
+
 
 end
