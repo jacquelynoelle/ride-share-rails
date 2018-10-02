@@ -19,7 +19,7 @@
 
 <ul>
   <li><%= link_to "Edit", edit_driver_path(@driver.id) %></li>
-  <li><%= link_to "Delete", driver_path(@driver.id), method: :delete %></li>
+  <li><%= link_to "Delete", driver_path(@driver.id), method: :delete,  data: { confirm: 'Are you sure?'} %></li>
 </ul>
 
 <h2>Driver's Trips  [[TBD CALL DRIVEN_TRIPS METHOD] this should display as a list and you can click on each trip for details</h2>
