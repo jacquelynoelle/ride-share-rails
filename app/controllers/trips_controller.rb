@@ -5,6 +5,10 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find_by(id: params[:id].to_i)
+
+    if @trip.nil?
+      render :notfound, status: :not_found
+    end
   end
 
   def new
@@ -12,7 +16,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    trip = Trip.new(trip_params) #instantiate a new book
+    trip = Trip.new(trip_params)
 
     if trip.save
       redirect_to trip_path(trip.id)
@@ -33,8 +37,8 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    trip_to_delete = Trip.find_by(id: params[:id].to_i)
-    trip_to_delete.destroy
+    @deleted_trip = Trip.find_by(id: params[:id].to_i)
+    @deleted_trip.destroy
 
     redirect_to trips_path
   end

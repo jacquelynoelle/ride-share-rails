@@ -5,6 +5,10 @@ class PassengersController < ApplicationController
 
   def show
     @passenger = Passenger.find_by(id: params[:id].to_i)
+
+    if @passenger.nil?
+      render :notfound, status: :not_found
+    end
   end
 
   def new
@@ -12,7 +16,7 @@ class PassengersController < ApplicationController
   end
 
   def create
-    passenger = Passenger.new(passenger_params) #instantiate a new book
+    passenger = Passenger.new(passenger_params)
 
     if passenger.save
       redirect_to passenger_path(passenger.id)
@@ -33,8 +37,8 @@ class PassengersController < ApplicationController
   end
 
   def destroy
-    passenger_to_delete = Passenger.find_by(id: params[:id].to_i)
-    passenger_to_delete.destroy
+    @deleted_passenger = Passenger.find_by(id: params[:id].to_i)
+    @deleted_passenger.destroy
 
     redirect_to passengers_path
   end
