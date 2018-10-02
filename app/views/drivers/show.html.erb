@@ -28,12 +28,12 @@
   <% trips.each do |trip| %>
     <li>
       <ul class="details">
-        <li><%= trip.id %></li>
-        <li><%= trip.driver_id %></li>
-        <li><%= trip.passenger_id %></li>
-        <li><%= trip.date %></li>
-        <li><%= trip.rating %></li>
-        <li><%= trip.cost %></li>
+        <li><%= link_to "Trip #{trip.id}", trip_path(trip.id) %></li>
+        <li><%= link_to "Driver", driver_path(@driver.id) %></li>
+        <li><%= link_to "Passenger #{trip.passenger_id}", passenger_path(trip.passenger_id) %></li>
+        <li>Trip date <%= trip.date %></li>
+        <li>Trip rating <%= trip.rating %></li>
+        <li>Trip cost <%= trip.cost %></li>
       </ul>
     </li>
   <% end %>
