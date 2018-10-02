@@ -17,7 +17,7 @@
   <% trips.each do |trip| %>
     <li>
       <ul class="details">
-        <li><%= trip.id %></li>
+        <li><%= link_to "#{trip.id}", trip_path(trip.id) %></li>
         <li><%= trip.driver_id %></li>
         <li><%= trip.passenger_id %></li>
         <li><%= trip.date %></li>
