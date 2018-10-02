@@ -1,5 +1,9 @@
 <h1>Driver Details</h1>
 
+<% if @driver.nil? %>
+<%= controller.redirect_to "/notfound" %>
+<% else %>
+
 <h2><%= @driver.name %></h2>
 
 <ul>
@@ -38,3 +42,5 @@
     </li>
   <% end %>
 </ul>
+
+<% end %> 
