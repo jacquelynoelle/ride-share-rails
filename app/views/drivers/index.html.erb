@@ -1,2 +1,16 @@
-<h1>Drivers#index</h1>
-<p>Find me in app/views/drivers/index.html.erb</p>
+<h1>Rideshare Drivers</h1>
+
+<h1>These are all the drivers!</h1>
+<% @drivers.each do |driver| %>
+  <ul>
+    <li>
+      <%= link_to "#{driver.name}", driver_path(driver.id) %>
+    </li>
+    <li>
+      <%= link_to "Edit", edit_driver_path(driver.id) %>
+    </li>
+    <li>
+      <%= link_to "Delete", driver_path(driver.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
+    </li>
+  </ul>
+<% end %>
