@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trip = Trip.all.order(:date)
+    @trips = Trip.all
   end
 
   def show
@@ -44,6 +44,6 @@ class TripsController < ApplicationController
   private
 
     def trip_params
-      return params.require(:trip).permit(:id, :name, :phone_num)
+      return params.require(:trip).permit(:driver_id, :passenger_id, :date, :rating, :cost)
     end
 end
