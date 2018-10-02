@@ -10,7 +10,7 @@
     VIN: <%= @driver.vin %>
   </li>
   <li>
-    Total Earnings: [[TBD CALL TOTAL_EARNINGS METHOD]]
+    Total Earnings: <%= @driver.total_earnings %>
   </li>
   <li>
     Rating: [[TBD CALL AVERAGE_RATING METHOD]]
@@ -22,6 +22,19 @@
   <li><%= link_to "Delete", driver_path(@driver.id), method: :delete,  data: { confirm: 'Are you sure?'} %></li>
 </ul>
 
-<h2>Driver's Trips  [[TBD CALL DRIVEN_TRIPS METHOD] this should display as a list and you can click on each trip for details</h2>
-
-<p>Render partial here of trips?</p>
+<h2>Driver's Trips</h2>
+<% trips = @driver.list_trips %>
+<ul class="list-of-data">
+  <% trips.each do |trip| %>
+    <li>
+      <ul class="details">
+        <li><%= trip.id %></li>
+        <li><%= trip.driver_id %></li>
+        <li><%= trip.passenger_id %></li>
+        <li><%= trip.date %></li>
+        <li><%= trip.rating %></li>
+        <li><%= trip.cost %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
