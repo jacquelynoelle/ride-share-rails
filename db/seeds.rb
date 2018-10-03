@@ -32,6 +32,7 @@ CSV.foreach(PASSENGER_FILE, :headers => true) do |row|
   passenger.id = row['id']
   passenger.name = row['name']
   passenger.phone_num = row['phone_num']
+  passenger.is_active = true
   successful = passenger.save
   if !successful
     passenger_failures << passenger
