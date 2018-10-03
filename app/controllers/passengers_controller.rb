@@ -1,12 +1,12 @@
 class PassengersController < ApplicationController
   def index
-    @passengers = Passenger.all.order(:name)
+    @passengers = Passenger.where(is_active: true).order(:name)
   end
 
   def show
     @passenger = Passenger.find_by(id: params[:id].to_i)
 
-    if @passenger.nil?
+    if @passenger.nil? || !@passenger.is_active
       render :notfound, status: :not_found
     end
   end
@@ -27,6 +27,10 @@ class PassengersController < ApplicationController
 
   def edit
     @passenger = Passenger.find_by(id: params[:id].to_i)
+
+    if @passenger.nil? || !@passenger.is_active
+      render :notfound, status: :not_found
+    end
   end
 
   def update
@@ -38,7 +42,7 @@ class PassengersController < ApplicationController
 
   def destroy
     @deleted_passenger = Passenger.find_by(id: params[:id].to_i)
-    @deleted_passenger.destroy
+    @deleted_passenger.update(is_active: false)
   end
 
   private
