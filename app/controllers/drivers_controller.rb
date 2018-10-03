@@ -1,13 +1,13 @@
 class DriversController < ApplicationController
   def index
-    @drivers = Driver.all.order(:name)
+    @drivers = Driver.where(is_active: true).order(:name)
   end
 
   def show
     id = params[:id].to_i
     @driver = Driver.find_by(id: id)
 
-    if @driver.nil?
+    if @driver.nil? || !@driver.is_active
       render :notfound, status: :not_found
     end
   end
@@ -28,6 +28,10 @@ class DriversController < ApplicationController
 
   def edit
     @driver = Driver.find_by(id: params[:id].to_i)
+
+    if @driver.nil? || !@driver.is_active
+      render :notfound, status: :not_found
+    end
   end
 
   def update
@@ -39,7 +43,7 @@ class DriversController < ApplicationController
 
   def destroy
     @deleted_driver = Driver.find_by(id: params[:id].to_i)
-    @deleted_driver.destroy
+    @deleted_driver.update(is_active: false)
   end
 
   private
