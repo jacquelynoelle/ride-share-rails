@@ -1,14 +1,28 @@
 <h1>Passenger List</h1>
-<%= link_to "Add new passenger", new_passenger_path %>
-<ul class="list-of-data">
-  <% @passengers.each do |passenger| %>
+
+<section>
+  <%= link_to "Add new passenger", new_passenger_path, class: "button" %>
+</section>
+
+<section>
+  <ul class="list-of-data">
     <li>
-      <ul class="details">
-        <li><%= passenger.id %></li>
-        <li><%= link_to "#{passenger.name}", passenger_path(passenger.id) %></li>
-        <li><%= link_to "Edit", edit_passenger_path(passenger.id) %></li>
-        <li><%= link_to "Delete", passenger_path(passenger.id), method: :delete,  data: { confirm: 'Are you sure?' } %></li>
+      <ul class="table-header details">
+        <li>ID</li>
+        <li>Name</li>
+        <li>Edit</li>
+        <li>Delete</li>
       </ul>
     </li>
-  <% end %>
-</ul>
+    <% @passengers.each do |passenger| %>
+      <li>
+        <ul class="details">
+          <li><%= passenger.id %></li>
+          <li><%= link_to "#{passenger.name}", passenger_path(passenger.id) %></li>
+          <li><%= link_to "Edit", edit_passenger_path(passenger.id) %></li>
+          <li><%= link_to "Delete", passenger_path(passenger.id), method: :delete,  data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</section>

@@ -46,27 +46,35 @@ a:hover {
   color: var(--jk-blue);
 }
 
+.button {
+  background-color: var(--jk-lightpurple);
+  color: var(--jk-white);
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.button:hover {
+  background-color: var(--jk-blue);
+  color: var(--jk-white);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
 ul {
   list-style: none;
   padding: 0;
 }
 
-ul.list-of-data {
-  display: flex;
-  flex-direction: column;
-}
-
-ul.details {
-  display: flex;
-  flex-direction: row;
-}
-
-ul.details li {
-  padding-right: 10px;
-}
-
 main {
   padding: 2rem;
+}
+
+main > section {
+  padding-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
 }
 
 #menuToggle {
@@ -183,4 +191,28 @@ main {
 /* slide in from left */
 #menuToggle input:checked ~ ul {
   transform: none;
+}
+
+.list-of-data {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.list-of-data > li:nth-of-type(odd) {
+  background-color: #dadada;
+}
+
+.table-header {
+  background-color: var(--jk-lightpurple);
+  color: var(--jk-white);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.5fr 0.5fr;
+}
+
+.details li {
+  padding-right: 10px;
 }
