@@ -9,7 +9,8 @@ CSV.foreach(DRIVER_FILE, :headers => true) do |row|
   driver.id = row['id']
   driver.name = row['name']
   driver.vin = row['vin']
-  driver.is_active = true 
+  driver.is_active = true
+  driver.available = true
   successful = driver.save
   if !successful
     driver_failures << driver
