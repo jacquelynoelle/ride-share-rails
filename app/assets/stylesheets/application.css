@@ -14,6 +14,15 @@
  *= require_self
  */
 
+:root {
+   --jk-lightpurple: #4a1942;
+   --jk-darkpurple: #2e1c2b;
+   --jk-blue: #73c2be;
+   --jk-white: #eaeaea;
+
+   /* use these like this: var(--jk-lightpurple) */
+}
+
 ul {
   list-style: none;
   padding: 0;
