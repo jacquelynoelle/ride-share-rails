@@ -26,6 +26,8 @@ instead of reloading the whole page the browser made a XHR request (which is rai
   <%= f.label :vin %>
   <%= f.text_field :vin %>
 
+  <%= f.hidden :is_active, value: true %>
+
   <%# f.label :image_url %>
   <%# f.text_field :image_url %>
 
