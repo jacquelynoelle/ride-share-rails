@@ -22,7 +22,7 @@ class DriversController < ApplicationController
     if driver.save
       redirect_to driver_path(driver.id)
     else
-      render :new
+      render :new #the new driver form should show the error messages
     end
   end
 

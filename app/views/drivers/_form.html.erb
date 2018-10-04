@@ -1,4 +1,19 @@
 <h1> <%=action_name %> </h1>
+<%# form_with url: "/drivers", method: :post %>
+
+ <% if @driver.errors.any? %>
+  <ul class="errors">
+    <% @driver.errors.each do |column, message| %>
+    <li>
+      <strong><%= column.capitalize %></strong> <%= message %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<%# form_with was generating the XHR requests%>
+<%#the reason Chris' form wasn't showing up in class was because
+instead of reloading the whole page the browser made a XHR request (which is rails producing javascript to make the request so it doesn't have to reload everything) %>
 
 <%= form_with model: @driver, class: "form" do |f| %>
   <p>Modify the fields below:</p>
