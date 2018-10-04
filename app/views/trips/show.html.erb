@@ -8,7 +8,7 @@
   Passenger ID: <%= link_to "#{@trip.passenger_id}", passenger_path(@trip.passenger_id) %>
 </p>
 <p>Date: <%= @trip.date %></p>
-<p>Cost: <%= @trip.cost %></p>
+<p>Cost: <%= @trip.display_cost %></p>
 <p>
   <% if @trip.rating %>
     <%= "Rating: #{@trip.rating}" %>

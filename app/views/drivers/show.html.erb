@@ -10,7 +10,7 @@
     VIN: <%= @driver.vin %>
   </li>
   <li>
-    Total Earnings: $<%= @driver.total_earnings %>
+    Total Earnings: <%= @driver.total_earnings %>
   </li>
   <li>
     Rating: <%= @driver.average_rating %>
@@ -33,7 +33,7 @@
         <li><%= link_to "Passenger #{trip.passenger_id}", passenger_path(trip.passenger_id) %></li>
         <li>Trip date <%= trip.date %></li>
         <li>Trip rating <%= trip.rating %></li>
-        <li>Trip cost <%= trip.cost %></li>
+        <li>Trip cost <%= trip.display_cost %></li>
       </ul>
     </li>
   <% end %>

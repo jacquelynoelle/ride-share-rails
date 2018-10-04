@@ -4,7 +4,7 @@
 
 <p>ID: <%= @passenger.id %></p>
 <p>Phone number: <%= @passenger.phone_num %></p>
-<p>Total spending: $<%= @passenger.total_spent %></p>
+<p>Total spending: <%= @passenger.total_spent %></p>
 
 <ul>
   <li><%= link_to "Edit", edit_passenger_path(@passenger.id) %></li>
@@ -22,7 +22,7 @@
         <li><%= trip.driver_id %></li>
         <li><%= trip.passenger_id %></li>
         <li><%= trip.date %></li>
-        <li><%= trip.cost %></li>
+        <li><%= trip.display_cost %></li>
         <li>
           <% if trip.rating %>
             <%= trip.rating %>

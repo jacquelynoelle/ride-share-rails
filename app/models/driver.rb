@@ -12,7 +12,7 @@ class Driver < ApplicationRecord
     driven_trips = list_trips
     raw_earnings = driven_trips.map { |trip| (trip.cost * 0.01 - 1.65)}
     total_earnings = raw_earnings.sum * 0.8
-    return total_earnings.round(2)
+    return "$#{total_earnings.round(2)}"
   end
 
   def average_rating

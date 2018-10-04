@@ -7,7 +7,7 @@
         <li><%= trip.driver_id %></li>
         <li><%= trip.passenger_id %></li>
         <li><%= trip.date %></li>
-        <li><%= trip.cost %></li>
+        <li><%= trip.display_cost %></li>
         <li><%= trip.rating %></li>
         <li><%= link_to "Edit", edit_trip_path(trip.id) %></li>
         <li><%= link_to "Delete", trip_path(trip.id), method: :delete,  data: { confirm: 'Are you sure?' } %></li>

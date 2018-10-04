@@ -28,4 +28,7 @@ class Trip < ApplicationRecord
     self.passenger_id = pass_id
   end
 
+  def display_cost
+    dollar_cost = "$#{(self.cost * 0.01).round(2)}"
+  end
 end

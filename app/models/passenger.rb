@@ -11,6 +11,6 @@ class Passenger < ApplicationRecord
   def total_spent
     rides = list_trips
     spending = rides.map { |trip| (trip.cost * 0.01) }
-    return spending.sum.round(2)
+    return "$#{spending.sum.round(2)}"
   end
 end
