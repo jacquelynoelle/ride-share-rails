@@ -11,18 +11,22 @@ class TripsController < ApplicationController
     end
   end
 
-  def new
-    @trip = Trip.new
-  end
-
   def create
-    trip = Trip.new(trip_params)
-
-    if trip.save
-      redirect_to trip_path(trip.id)
+    if params[:passenger_id]
+      # This is the nested route, /passenger/:passenger_id/trips/new
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trip = passenger.trips(ADD STUFF).new
     else
-      render :new
+      render :notfound, status: :not_found
     end
+
+
+
+    # trip = Trip.new(trip_params)
+    #
+    # if trip.save
+    #   redirect_to trip_path(trip.id)
+
   end
 
   def edit
