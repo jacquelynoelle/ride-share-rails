@@ -9,7 +9,7 @@
 <ul>
   <li><%= link_to "Edit", edit_passenger_path(@passenger.id) %></li>
   <li><%= link_to "Delete", passenger_path(@passenger.id), method: :delete,  data: { confirm: 'Are you sure?'} %></li>
-  <li><%= link_to "Add Trip", new_passenger_trip_path(@passenger.id) %></li>
+  <li><%= link_to "Start Trip", passenger_trips_path(@passenger.id), method: :post %></li>
 </ul>
 
 <h2>Passenger's Trips</h2>
@@ -22,7 +22,15 @@
         <li><%= trip.driver_id %></li>
         <li><%= trip.passenger_id %></li>
         <li><%= trip.date %></li>
-        <li><%= trip.rating %></li>
+        <li>
+          <% if trip.rating %>
+            <%= trip.rating %>
+          <% else %>
+            <%= form_with model: @trip, class: "trip-form"  do |f|%>
+              <%= f.select :rating, ["-", 1, 2, 3, 4, 5] %>
+            <% end %>
+          <% end %>
+        </li>
         <li><%= trip.cost %></li>
       </ul>
     </li>
