@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  root "drivers#index"
+  get 'home/index', as: 'home'
+  root "home#index"
 
   resources :trips, except: [:new, :destroy]
 

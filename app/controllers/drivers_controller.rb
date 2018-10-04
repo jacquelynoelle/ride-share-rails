@@ -18,10 +18,11 @@ class DriversController < ApplicationController
 #driver in the create method must be an instance variable for the view
   def create
     @driver = Driver.new(driver_params)
-    # @driver.is_active = true
+    @driver.is_active = true
+    @driver.available = true 
 
     if @driver.save
-      redirect_to driver_path(driver.id)
+      redirect_to driver_path(@driver.id)
     else
       render :new #the new driver form should show the error messages
     end
