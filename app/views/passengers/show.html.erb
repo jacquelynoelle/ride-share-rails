@@ -22,16 +22,14 @@
         <li><%= trip.driver_id %></li>
         <li><%= trip.passenger_id %></li>
         <li><%= trip.date %></li>
+        <li><%= trip.cost %></li>
         <li>
           <% if trip.rating %>
             <%= trip.rating %>
           <% else %>
-            <%= form_with model: @trip, class: "trip-form"  do |f|%>
-              <%= f.select :rating, ["-", 1, 2, 3, 4, 5] %>
-            <% end %>
+            <%= "--" %>
           <% end %>
         </li>
-        <li><%= trip.cost %></li>
       </ul>
     </li>
   <% end %>

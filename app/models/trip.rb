@@ -2,6 +2,11 @@ class Trip < ApplicationRecord
   belongs_to :passenger
   belongs_to :driver
 
+  validates :passenger_id, presence: true
+  validates :driver_id, presence: true
+  validates :date, presence: true
+  validates :cost, presence: true
+
   def select_driver
     available_drivers = Driver.where(available: true)
     selected_driver = nil
