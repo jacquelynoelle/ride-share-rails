@@ -9,5 +9,5 @@ Rails.application.config.action_view.form_with_generates_remote_forms = false
 #make an XHR request (basically rails produces javascript
 #to make the request from the backend so it doesn't
 #have to reload everything which is a problem because
-# the form view is not reloaded along with the error 
+# the form view is not reloaded along with the error
 #messages)

@@ -18,7 +18,7 @@ class DriversController < ApplicationController
 #driver in the create method must be an instance variable for the view
   def create
     @driver = Driver.new(driver_params)
-    # @driver.is_active = true 
+    # @driver.is_active = true
 
     if @driver.save
       redirect_to driver_path(driver.id)
@@ -36,10 +36,15 @@ class DriversController < ApplicationController
   end
 
   def update
-    driver = Driver.find_by(id: params[:id].to_i)
-    driver.update(driver_params)
+    @driver = Driver.find_by(id: params[:id].to_i)
+    @driver.update(driver_params)
 
-    redirect_to driver_path(driver.id)
+    if @driver.save
+      redirect_to driver_path(@driver.id)
+    else
+      render :edit #the new driver form should show the error messages
+    end
+
   end
 
   def destroy
