@@ -35,7 +35,7 @@ class PassengersController < ApplicationController
 
   def update
     @passenger = Passenger.find_by(id: params[:id].to_i)
-    @assenger.update(passenger_params)
+    @passenger.update(passenger_params)
 
     redirect_to passenger_path(@passenger.id)
   end
