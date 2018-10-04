@@ -1,7 +1,9 @@
 <h1> <%=action_name %> </h1>
 <%# form_with url: "/drivers", method: :post %>
 
+<%# if all fields are blank the controller#create calls Driver.new but can't save because all fields are nil so it goes to the else render:new  and we need driver to be a @driver local variable for this path to happen%>
  <% if @driver.errors.any? %>
+ <%# raise %>
   <ul class="errors">
     <% @driver.errors.each do |column, message| %>
     <li>

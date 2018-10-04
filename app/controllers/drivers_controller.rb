@@ -18,6 +18,7 @@ class DriversController < ApplicationController
 #driver in the create method must be an instance variable for the view
   def create
     @driver = Driver.new(driver_params)
+    # @driver.is_active = true 
 
     if @driver.save
       redirect_to driver_path(driver.id)
