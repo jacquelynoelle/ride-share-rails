@@ -12,12 +12,11 @@
     <p><strong>ID</strong><br><%= @passenger.id %></p>
     <p><strong>Phone number</strong><br><%= @passenger.phone_num %></p>
     <p><strong>Total spending</strong><br><%= @passenger.total_spent %></p>
-    <p>
-      <%= button_to "Start Trip", passenger_trips_path(@passenger.id), method: :post %>
-      <%= button_to "Edit", edit_passenger_path(@passenger.id), class: "alt-button", method: :get %>
-      <%= button_to "Delete", passenger_path(@passenger.id), method: :delete,
-        data: { confirm: 'Are you sure?'}, class: "alt-button" %>
-    </p>
+
+    <%= button_to "Start Trip", passenger_trips_path(@passenger.id), method: :post %>
+    <%= button_to "Edit", edit_passenger_path(@passenger.id), class: "alt-button", method: :get %>
+    <%= button_to "Delete", passenger_path(@passenger.id), method: :delete,
+      data: { confirm: 'Are you sure?'}, class: "alt-button" %>
   </section>
 </section>
 

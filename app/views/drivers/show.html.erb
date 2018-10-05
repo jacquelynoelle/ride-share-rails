@@ -16,11 +16,9 @@
 
     <p><strong>Rating</strong><br><%= @driver.average_rating %></p>
 
-    <p>
-      <%= button_to "Edit", edit_driver_path(@driver.id), class: "alt-button", method: :get %>
-      <%= button_to "Delete", driver_path(@driver.id), method: :delete,
-        data: { confirm: 'Are you sure?'}, class: "alt-button" %>
-    </p>
+    <%= button_to "Edit", edit_driver_path(@driver.id), class: "alt-button", method: :get %>
+    <%= button_to "Delete", driver_path(@driver.id), method: :delete,
+      data: { confirm: 'Are you sure?'}, class: "alt-button" %>
   </section>
 </section>
 
