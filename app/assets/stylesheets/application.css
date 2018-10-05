@@ -40,8 +40,6 @@ body {
   height: 100vh */
 }
 
-
-
 a {
   text-decoration: none;
   color: var(--jk-lightpurple);
@@ -107,6 +105,10 @@ h1 {
 
 hr {
   margin: 2rem 0;
+}
+
+.page-index {
+  padding: 0.5rem 0;
 }
 
 #menuToggle {
