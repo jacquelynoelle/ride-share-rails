@@ -39,4 +39,11 @@ class Driver < ApplicationRecord
       return nil
     end
   end
+
+  def end_ride
+    if self.available == false
+      self.available = true # set chosen driver available
+      self.save
+    end
+  end
 end

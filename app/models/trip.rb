@@ -27,8 +27,8 @@ class Trip < ApplicationRecord
   end
 
   def start_trip(pax_id)
-    @passenger = Passenger.find_by(id: pax_id)
-    if @passenger.start_ride
+    passenger = Passenger.find_by(id: pax_id)
+    if passenger.start_ride
       self.date = Date.today
       self.rating = nil
       self.cost = 500 + rand(5000)
@@ -38,6 +38,14 @@ class Trip < ApplicationRecord
     else
       return false
     end
+  end
+
+  def end_trip
+    passenger = Passenger.find_by(id: self.passenger_id)
+    driver = Driver.find_by(id: self.driver_id)
+
+    passenger.end_ride
+    driver.end_ride
   end
 
   def display_cost

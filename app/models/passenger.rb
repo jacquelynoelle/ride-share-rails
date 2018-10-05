@@ -31,4 +31,11 @@ class Passenger < ApplicationRecord
       return false
     end
   end
+
+  def end_ride
+    if self.available == false
+      self.available = true # set chosen passegenger available
+      self.save
+    end
+  end
 end
