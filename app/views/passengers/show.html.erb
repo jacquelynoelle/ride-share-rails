@@ -1,6 +1,8 @@
 <h1>Passenger Detail</h1>
 
 <h2><%= @passenger.name %></h2>
+<div><%= image_tag "#{@passenger.image_url}", alt: "Picture of #{@passenger.name}" %></div>
+
 
 <p><strong>ID</strong><br><%= @passenger.id %></p>
 <p><strong>Phone number</strong><br><%= @passenger.phone_num %></p>
