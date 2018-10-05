@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all.order(date: :desc)
+    @trips = Trip.search(params[:term], params[:page])
   end
 
   def show

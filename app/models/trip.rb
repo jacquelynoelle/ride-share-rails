@@ -7,6 +7,14 @@ class Trip < ApplicationRecord
   validates :date, presence: true
   validates :cost, presence: true
 
+  def self.search(term, page)
+    if term
+      where('name LIKE ?', "%#{term}%").paginate(page: page, per_page: 20).order(date: :desc)
+    else
+      paginate(page: page, per_page: 20).order(date: :desc)
+    end
+  end
+
   def select_driver
     available_drivers = Driver.where(available: true)
     selected_driver = nil

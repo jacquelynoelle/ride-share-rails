@@ -1,6 +1,6 @@
 class PassengersController < ApplicationController
   def index
-    @passengers = Passenger.where(is_active: true).order(:name)
+    @passengers = Passenger.where(is_active: true).search(params[:term], params[:page])
   end
 
   def show

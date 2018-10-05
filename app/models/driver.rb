@@ -4,6 +4,14 @@ class Driver < ApplicationRecord
 
   has_many :trips
 
+  def self.search(term, page)
+    if term
+      where('name LIKE ?', "%#{term}%").paginate(page: page, per_page: 20).order(:name)
+    else
+      paginate(page: page, per_page: 20).order(:name)
+    end
+  end
+
   def list_trips
     return self.trips.where(driver_id: id)
   end

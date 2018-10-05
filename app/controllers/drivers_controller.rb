@@ -1,6 +1,6 @@
 class DriversController < ApplicationController
   def index
-    @drivers = Driver.where(is_active: true).order(:name)
+    @drivers = Driver.where(is_active: true).search(params[:term], params[:page])
   end
 
   def show
@@ -19,7 +19,7 @@ class DriversController < ApplicationController
   def create
     @driver = Driver.new(driver_params)
     @driver.is_active = true
-    @driver.available = true 
+    @driver.available = true
 
     if @driver.save
       redirect_to driver_path(@driver.id)
