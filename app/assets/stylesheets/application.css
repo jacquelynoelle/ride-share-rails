@@ -16,8 +16,7 @@
 
 :root {
    --jk-lightpurple: #4a1942;
-   --jk-darkpurple: #2e1c2b;
-   --jk-blue: #73c2be;
+   --jk-green: #18a999;
    --jk-white: #eaeaea;
 
    /* use these like this: var(--jk-lightpurple) */
@@ -28,7 +27,7 @@ body {
   padding: 0;
 
   background: var(--jk-white);
-  color: var(--jk-darkpurple);
+  color: #333333;
   font-family: "Avenir Next", "Avenir", sans-serif;
 
   display: flex;
@@ -51,7 +50,41 @@ a {
 }
 
 a:hover {
-  color: var(--jk-blue);
+  color: var(--jk-green);
+}
+
+.button_to {
+  display: inline;
+}
+
+.button_to > input {
+  background-color: var(--jk-lightpurple);
+  color: var(--jk-white);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  /* box-shadow: 0 2px 5px rgba(0,0,0,0.3); */
+  border: 0;
+  font-size: 1rem;
+  border: 1px solid var(--jk-lightpurple);
+}
+
+.button_to > input:hover {
+  background-color: var(--jk-green);
+  color: var(--jk-white);
+  /* box-shadow: 0 1px 5px rgba(0,0,0,0.1); */
+  border: 1px solid var(--jk-green);
+}
+
+.button_to > .alt-button {
+  background-color: var(--jk-white);
+  color: var(--jk-lightpurple);
+  border: 1px solid var(--jk-lightpurple);
+}
+
+.button_to > .alt-button:hover {
+  color: var(--jk-green);
+  border: 1px solid var(--jk-green);
+  background-color: var(--jk-white);
 }
 
 ul {
@@ -59,22 +92,20 @@ ul {
   padding: 0;
 }
 
-ul.list-of-data {
-  display: flex;
-  flex-direction: column;
-}
-
-ul.details {
-  display: flex;
-  flex-direction: row;
-}
-
-ul.details li {
-  padding-right: 10px;
-}
-
 main {
   padding: 2rem;
+}
+
+main > section {
+  padding-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+hr {
+  margin: 2rem 0;
 }
 
 #menuToggle {
@@ -114,7 +145,7 @@ main {
   margin-bottom: 5px;
   position: relative;
 
-  background: var(--jk-darkpurple);
+  background: var(--jk-lightpurple);
   border-radius: 3px;
 
   z-index: 1;
@@ -163,7 +194,7 @@ main {
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  background: var(--jk-darkpurple);
+  background: var(--jk-lightpurple);
   height: 1000px;
 
   list-style-type: none;
@@ -181,14 +212,33 @@ main {
 }
 
 #menu a {
-  color: var(--jk-white)
+  color: var(--jk-white);
 }
 
 #menu a:hover {
-  color: var(--jk-blue)
+  color: var(--jk-green);
 }
 
 /* slide in from left */
 #menuToggle input:checked ~ ul {
   transform: none;
+}
+
+table.list-of-data {
+  width: 60%;
+  border-spacing: 0;
+}
+
+tr:nth-of-type(odd) {
+  background-color: #dadada;
+}
+
+tr.table-header {
+  background-color: var(--jk-lightpurple);
+  color: var(--jk-white);
+  font-weight: bold;
+}
+
+tr > td:first-child {
+  padding-left: 10px;
 }

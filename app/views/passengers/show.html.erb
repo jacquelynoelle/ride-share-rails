@@ -2,35 +2,39 @@
 
 <h2><%= @passenger.name %></h2>
 
-<p>ID: <%= @passenger.id %></p>
-<p>Phone number: <%= @passenger.phone_num %></p>
-<p>Total spending: <%= @passenger.total_spent %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_passenger_path(@passenger.id) %></li>
-  <li><%= link_to "Delete", passenger_path(@passenger.id), method: :delete,  data: { confirm: 'Are you sure?'} %></li>
-  <li><%= link_to "Start Trip", passenger_trips_path(@passenger.id), method: :post %></li>
-</ul>
-
-<h2>Passenger's Trips</h2>
+<p><strong>ID</strong><br><%= @passenger.id %></p>
+<p><strong>Phone number</strong><br><%= @passenger.phone_num %></p>
+<p><strong>Total spending</strong><br><%= @passenger.total_spent %></p>
+<p>
+  <%= button_to "Start Trip", passenger_trips_path(@passenger.id), method: :post %>
+  <%= button_to "Edit", edit_passenger_path(@passenger.id), class: "alt-button", method: :get %>
+  <%= button_to "Delete", passenger_path(@passenger.id), method: :delete,
+    data: { confirm: 'Are you sure?'}, class: "alt-button" %>
+</p>
+<hr>
+<h2>Trips</h2>
 <% trips = @passenger.list_trips %>
-<ul class="list-of-data">
+<table class="list-of-data">
+  <tr class="table-header details">
+    <td>Trip ID</td>
+    <td>Driver ID</td>
+    <td>Date</td>
+    <td>Cost</td>
+    <td>Rating</td>
+  </tr>
   <% trips.each do |trip| %>
-    <li>
-      <ul class="details">
-        <li><%= link_to "#{trip.id}", trip_path(trip.id) %></li>
-        <li><%= trip.driver_id %></li>
-        <li><%= trip.passenger_id %></li>
-        <li><%= trip.date %></li>
-        <li><%= trip.display_cost %></li>
-        <li>
-          <% if trip.rating %>
-            <%= trip.rating %>
-          <% else %>
-            <%= "--" %>
-          <% end %>
-        </li>
-      </ul>
-    </li>
+    <tr class="details">
+      <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+      <td><%= link_to "#{trip.driver_id}", driver_path(trip.driver_id) %></td>
+      <td><%= trip.date %></td>
+      <td><%= trip.display_cost %></td>
+      <td>
+        <% if trip.rating %>
+          <%= trip.rating %>
+        <% else %>
+          <%= "--" %>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
