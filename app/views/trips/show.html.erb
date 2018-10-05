@@ -29,7 +29,7 @@
     <% end %>
   </p>
 
-  <%= button_to "Edit", edit_trip_path(@trip.id), class: "alt-button" %>
+  <%= button_to "Edit", edit_trip_path(@trip.id), class: "alt-button", method: :get %>
   <%= button_to "Delete", trip_path(@trip.id), method: :delete,
     data: { confirm: 'Are you sure?' }, class: "alt-button" %>
 </section>
