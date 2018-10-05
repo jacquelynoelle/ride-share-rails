@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.search(params[:term], params[:page])
+    @trips = Trip.all.order(date: :desc)
   end
 
   def show
@@ -11,18 +11,17 @@ class TripsController < ApplicationController
     end
   end
 
-  def new
-    @trip = Trip.new
-  end
-
   def create
-    trip = Trip.new(trip_params)
-    #trip.driver = driver.first_available
-
-    if trip.save
-      redirect_to trip_path(trip.id)
+    if params[:passenger_id] # Nested route: /passenger/:passenger_id/trips/
+      pax_id = params[:passenger_id].to_i
+      passenger = Passenger.find_by(id: pax_id)
+      @trip = Trip.new
+      @trip.start_trip(pax_id)
+      if @trip.save
+        redirect_to passenger_path(pax_id)
+      end
     else
-      render :new
+      render :notfound, status: :not_found
     end
   end
 
@@ -31,10 +30,12 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find_by(id: params[:id].to_i)
-    trip.update(trip_params)
-
-    redirect_to trip_path(trip.id)
+    @trip = Trip.find_by(id: params[:id].to_i)
+    if @trip.update(trip_params)
+      redirect_to trip_path(id: params[:id].to_i)
+    else
+      render :edit
+    end
   end
 
   def destroy
