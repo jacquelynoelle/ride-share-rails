@@ -1,17 +1,31 @@
 <h1>All Trips</h1>
-<ul class="list-of-data">
+<table class="list-of-data">
+  <tr class="table-header details">
+    <td>ID</td>
+    <td>Driver</td>
+    <td>Passenger</td>
+    <td>Date</td>
+    <td>Cost</td>
+    <td>Rating</td>
+    <td></td>
+    <td></td>
+  </tr>
   <% @trips.each do |trip| %>
-    <li>
-      <ul class="details">
-        <li><%= link_to "#{trip.id}", trip_path(trip.id) %></li>
-        <li><%= trip.driver_id %></li>
-        <li><%= trip.passenger_id %></li>
-        <li><%= trip.date %></li>
-        <li><%= trip.display_cost %></li>
-        <li><%= trip.rating %></li>
-        <li><%= link_to "Edit", edit_trip_path(trip.id) %></li>
-        <li><%= link_to "Delete", trip_path(trip.id), method: :delete,  data: { confirm: 'Are you sure?' } %></li>
-      </ul>
-    </li>
+    <tr class="details">
+      <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+      <td><%= trip.driver_id %></td>
+      <td><%= trip.passenger_id %></td>
+      <td><%= trip.date %></td>
+      <td><%= trip.display_cost %></td>
+      <td>
+        <% if trip.rating %>
+          <%= trip.rating %>
+        <% else %>
+          <%= "--" %>
+        <% end %>
+      </td>
+      <td><%= link_to "Edit", edit_trip_path(trip.id) %></td>
+      <td><%= link_to "Delete", trip_path(trip.id), method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   <% end %>
-</ul>
+</table>

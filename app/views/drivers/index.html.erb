@@ -1,13 +1,24 @@
 <h1>Driver List</h1>
-<h3><%= link_to "Add new driver", new_driver_path %></h3>
-<ul class="list-of-data">
-  <% @drivers.each do |driver| %>
-    <li>
-      <ul class="details">
-        <li><%= link_to "#{driver.name}", driver_path(driver.id) %></li>
-        <li><%= link_to "Edit", edit_driver_path(driver.id) %></li>
-        <li><%= link_to "Delete", driver_path(driver.id), method: :delete,  data: { confirm: 'Are you sure?' } %></li>
-      </ul>
-    </li>
-  <% end %>
-</ul>
+
+<section>
+  <%= link_to "Add driver", new_driver_path, class: "button" %>
+</section>
+
+<section>
+  <table class="list-of-data">
+    <tr class="table-header details">
+      <td>ID</td>
+      <td>Name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <% @drivers.each do |driver| %>
+      <tr class="details">
+        <td><%= driver.id %></td>
+        <td><%= link_to "#{driver.name}", driver_path(driver.id) %></td>
+        <td><%= link_to "Edit", edit_driver_path(driver.id) %></td>
+        <td><%= link_to "Delete", driver_path(driver.id), method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>

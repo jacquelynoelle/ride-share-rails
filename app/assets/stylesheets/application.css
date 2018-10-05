@@ -50,7 +50,7 @@ a:hover {
   background-color: var(--jk-lightpurple);
   color: var(--jk-white);
   border-radius: 5px;
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
@@ -193,26 +193,16 @@ h1 {
   transform: none;
 }
 
-.list-of-data {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
+table.list-of-data {
+  width: 60%;
+  border-spacing: 0;
 }
 
-.list-of-data > li:nth-of-type(odd) {
+tr:nth-of-type(odd) {
   background-color: #dadada;
 }
 
-.table-header {
+tr.table-header {
   background-color: var(--jk-lightpurple);
   color: var(--jk-white);
-}
-
-.details {
-  display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr 0.5fr;
-}
-
-.details li {
-  padding-right: 10px;
 }
