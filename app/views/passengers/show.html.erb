@@ -47,7 +47,7 @@
             <% if trip.rating %>
               <%= trip.rating %>
             <% else %>
-              <%= "--" %>
+              <%= link_to "Rate Trip", edit_trip_path(trip.id) %>
             <% end %>
           </td>
         </tr>

@@ -30,5 +30,12 @@ class Driver < ApplicationRecord
     return average_rating.round(1)
   end
 
-
+  def dispatch
+    if self.available
+      self.available = false # set chosen driver unavailable
+      return self.id
+    else
+      return nil
+    end
+  end
 end
