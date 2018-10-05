@@ -16,7 +16,6 @@
 
 :root {
    --jk-lightpurple: #4a1942;
-   --jk-darkpurple: #2e1c2b;
    --jk-green: #18a999;
    --jk-white: #eaeaea;
 
@@ -229,4 +228,9 @@ tr:nth-of-type(odd) {
 tr.table-header {
   background-color: var(--jk-lightpurple);
   color: var(--jk-white);
+  font-weight: bold;
+}
+
+tr > td:first-child {
+  padding-left: 10px;
 }
