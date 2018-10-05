@@ -1,20 +1,18 @@
 <h1>Driver List</h1>
 
 <section>
-  <%= link_to "Add driver", new_driver_path, class: "button" %>
+  <%= button_to "Add driver", new_driver_path %>
 </section>
 
 <section>
   <table class="list-of-data">
     <tr class="table-header details">
-      <td>ID</td>
       <td>Name</td>
       <td></td>
       <td></td>
     </tr>
     <% @drivers.each do |driver| %>
       <tr class="details">
-        <td><%= driver.id %></td>
         <td><%= link_to "#{driver.name}", driver_path(driver.id) %></td>
         <td><%= link_to "Edit", edit_driver_path(driver.id) %></td>
         <td><%= link_to "Delete", driver_path(driver.id), method: :delete,  data: { confirm: 'Are you sure?' } %></td>

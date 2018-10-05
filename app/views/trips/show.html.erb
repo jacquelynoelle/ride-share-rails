@@ -2,16 +2,17 @@
 
 <h2>Trip #<%= @trip.id %></h2>
 <p>
-  Driver ID: <%= link_to "#{@trip.driver_id}", driver_path(@trip.driver_id) %>
+  <strong>Driver ID</strong><br><%= link_to "#{@trip.driver_id}", driver_path(@trip.driver_id) %>
 </p>
 <p>
-  Passenger ID: <%= link_to "#{@trip.passenger_id}", passenger_path(@trip.passenger_id) %>
+  <strong>Passenger ID</strong><br><%= link_to "#{@trip.passenger_id}", passenger_path(@trip.passenger_id) %>
 </p>
-<p>Date: <%= @trip.date %></p>
-<p>Cost: <%= @trip.display_cost %></p>
+<p><strong>Date</strong><br><%= @trip.date %></p>
+<p><strong>Cost</strong><br><%= @trip.display_cost %></p>
 <p>
+  <strong>Rating</strong><br>
   <% if @trip.rating %>
-    <%= "Rating: #{@trip.rating}" %>
+    <%= "#{@trip.rating}" %>
   <% else %>
     <%= form_with model: @trip, class: "trip-form"  do |f|%>
       <%= f.select :rating, ["-", 1, 2, 3, 4, 5] %>
@@ -20,7 +21,8 @@
   <% end %>
 </p>
 
-<ul>
-  <li><%= link_to "Edit", edit_trip_path(@trip.id) %></li>
-  <li><%= link_to "Delete", trip_path(@trip.id), method: :delete,  data: { confirm: 'Are you sure?' } %></li>
-</ul>
+<p>
+  <%= button_to "Edit", edit_trip_path(@trip.id), class: "alt-button" %>
+  <%= button_to "Delete", trip_path(@trip.id), method: :delete,
+    data: { confirm: 'Are you sure?' }, class: "alt-button" %>
+</p>
