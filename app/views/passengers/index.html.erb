@@ -1,10 +1,15 @@
-<h1>Passenger List</h1>
+<header>
+  <h1>Passenger List</h1>
+</header>
 
-<section>
+<aside>
   <%= button_to "Add passenger", new_passenger_path %>
-</section>
+</aside>
 
 <section>
+  <aside>
+    <%= will_paginate @tasks %>
+  </aside>
   <table class="list-of-data">
     <tr class="table-header details">
       <td>Name</td>

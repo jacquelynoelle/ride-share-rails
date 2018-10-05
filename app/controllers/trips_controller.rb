@@ -1,6 +1,10 @@
 class TripsController < ApplicationController
   def index
+<<<<<<< HEAD
     @trips = Trip.all
+=======
+    @trips = Trip.search(params[:term], params[:page])
+>>>>>>> 118daea30f0ba3f1afabd0b7b0294e824ea7ba60
   end
 
   def show

@@ -1,6 +1,6 @@
 class DriversController < ApplicationController
   def index
-    @drivers = Driver.where(is_active: true).order(:name)
+    @drivers = Driver.where(is_active: true).search(params[:term], params[:page])
   end
 
   def show
@@ -15,7 +15,7 @@ class DriversController < ApplicationController
   def new
     @driver = Driver.new
   end
-#driver in the create method must be an instance variable for the view
+
   def create
     @driver = Driver.new(driver_params)
     @driver.is_active = true
@@ -24,7 +24,7 @@ class DriversController < ApplicationController
     if @driver.save
       redirect_to driver_path(@driver.id)
     else
-      render :new #the new driver form should show the error messages
+      render :new
     end
   end
 
@@ -43,7 +43,7 @@ class DriversController < ApplicationController
     if @driver.save
       redirect_to driver_path(@driver.id)
     else
-      render :edit #the new driver form should show the error messages
+      render :edit 
     end
 
   end
