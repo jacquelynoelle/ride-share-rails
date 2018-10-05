@@ -26,13 +26,18 @@ class Trip < ApplicationRecord
     return selected_driver_id
   end
 
-  def start_trip(pass_id)
-    self.date = Date.today
-    self.rating = nil
-    self.cost = 500 + rand(5000)
-    # self.driver_id = select_driver.id
-    self.driver_id = get_driver
-    self.passenger_id = pass_id
+  def start_trip(pax_id)
+    @passenger = Passenger.find_by(id: pax_id)
+    if @passenger.start_ride
+      self.date = Date.today
+      self.rating = nil
+      self.cost = 500 + rand(5000)
+      self.driver_id = get_driver
+      self.passenger_id = pax_id
+      return true
+    else
+      return false
+    end
   end
 
   def display_cost

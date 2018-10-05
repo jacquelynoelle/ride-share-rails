@@ -21,4 +21,14 @@ class Passenger < ApplicationRecord
     spending = rides.map { |trip| (trip.cost * 0.01) }
     return "$#{spending.sum.round(2)}"
   end
+
+  def start_ride
+    if self.available
+      self.available = false # set passenger unavailable
+      self.save
+      return true
+    else
+      return false
+    end
+  end
 end
