@@ -30,6 +30,11 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find_by(id: params[:id].to_i)
+
+    if trip_params[:rating] != nil
+      @trip.end_trip
+    end
+
     if @trip.update(trip_params)
       redirect_to trip_path(id: params[:id].to_i)
     else
