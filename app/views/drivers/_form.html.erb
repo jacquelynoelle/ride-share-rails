@@ -1,32 +1,35 @@
-<h1> <%=action_name %> </h1>
-<%# form_with url: "/drivers", method: :post %>
 
-<%# if all fields are blank the controller#create calls Driver.new but can't save because all fields are nil so it goes to the else render:new  and we need driver to be a @driver local variable for this path to happen%>
- <% if @driver.errors.any? %>
- <%# raise %>
-  <ul class="errors">
-    <% @driver.errors.each do |column, message| %>
-    <li>
-      <strong><%= column.capitalize %></strong> <%= message %>
-    </li>
-    <% end %>
-  </ul>
-  <% end %>
+<div class="user">
+  <header class="user__header">
+      <img src="/assets/red-car.svg" alt="" />
+      <h1 class="user__title"><%= action_name %></h1>
+  </header>
 
+<section class="form">
+  <% if @driver.errors.any? %>
+   <ul class="errors">
+     <% @driver.errors.each do |column, message| %>
+     <li>
+       <strong><%= column.capitalize %></strong> <%= message %>
+     </li>
+     <% end %>
+   </ul>
+   <% end %>
 
-<%= form_with model: @driver, class: "form" do |f| %>
-  <p>Modify the fields below:</p>
+<%= form_with model: @driver, class: "form" do |f|%>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <%# f.label :name %>
+    <%= f.text_field :name, placeholder: :name, class: "form__input"%>
 
-  <%= f.label :vin %>
-  <%= f.text_field :vin %>
+    <%# f.label :phone_num %>
+    <%= f.text_field :phone_num, placeholder: :phone_num, class: "form__input"%>
 
-  <%# f.hidden_field :is_active, :value => true %>
+    <%# f.label :image_url %>
+    <%= f.text_field :image_url, placeholder: :image_url, class: "form__input" %>
 
-  <%# f.label :image_url %>
-  <%# f.text_field :image_url %>
-
-  <%= f.submit button_title, class: "button" %>
+  <%= f.submit button_title, class: 'btn'%>
 <% end %>
+
+</section>
+
+</div>
