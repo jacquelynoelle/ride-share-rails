@@ -1,10 +1,6 @@
 class TripsController < ApplicationController
   def index
-<<<<<<< HEAD
-    @trips = Trip.all
-=======
     @trips = Trip.search(params[:term], params[:page])
->>>>>>> 118daea30f0ba3f1afabd0b7b0294e824ea7ba60
   end
 
   def show
@@ -21,7 +17,7 @@ class TripsController < ApplicationController
 
   def create
     trip = Trip.new(trip_params)
-    #trip.driver = driver.first_available 
+    #trip.driver = driver.first_available
 
     if trip.save
       redirect_to trip_path(trip.id)
