@@ -13,9 +13,6 @@
   </ul>
   <% end %>
 
-<%# form_with was generating the XHR requests%>
-<%#the reason Chris' form wasn't showing up in class was because
-instead of reloading the whole page the browser made a XHR request (which is rails producing javascript to make the request so it doesn't have to reload everything) %>
 
 <%= form_with model: @driver, class: "form" do |f| %>
   <p>Modify the fields below:</p>
