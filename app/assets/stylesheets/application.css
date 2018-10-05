@@ -96,7 +96,7 @@ main {
   padding: 2rem;
 }
 
-main > section, main > header, main > section > * {
+main > section, main > header {
   padding: 1rem 0;
 }
 
