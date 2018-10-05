@@ -1,8 +1,14 @@
-<header>
+<!-- <header>
   <h1><%= "Edit Trip ##{@trip.id}" %></h1>
-</header>
+</header> -->
 
-<section>
+<div class="user">
+  <header class="user__header">
+      <img src="/assets/pax-icon.svg" alt="" />
+      <h1 class="user__title"><%= "Edit Trip ##{@trip.id}" %></h1>
+  </header>
+
+<section class="form">
   <% if @trip.errors.any? %>
     <ul class="errors">
       <% @trip.errors.each do |column, message| %>
@@ -14,23 +20,24 @@
   <% end %>
 
   <%= form_with model: @trip, class: "form" do |f|%>
-    <p>Modify the fields below:</p>
 
     <%= f.label :date %>
-    <%= f.text_field :date %>
+    <%= f.text_field :date, placeholder: :date, class: "form__input"%>
+
 
     <%= f.label :driver_id %>
-    <%= f.text_field :driver_id %>
+    <%= f.text_field :driver_id, placeholder: :driver_id, class: "form__input"%>
 
     <%= f.label :passenger_id %>
-    <%= f.text_field :passenger_id %>
+    <%= f.text_field :passenger_id, placeholder: :passenger_id, class: "form__input" %>
 
     <%= f.label :cost %>
-    <%= f.text_field :cost %>
+    <%= f.text_field :cost, placeholder: :cost, class: "form__input" %>
 
     <%= f.label :rating %>
-    <%= f.select :rating, ["-", 1, 2, 3, 4, 5] %>
+    <%= f.select :rating, ["-", 1, 2, 3, 4, 5], class: "btn" %>
 
-    <%= f.submit "Save", class: "button" %>
+    <%= f.submit "Save", class: "btn" %>
   <% end %>
 </section>
+</div>
