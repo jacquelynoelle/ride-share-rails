@@ -6,16 +6,21 @@
 // }
 // using rem makes all font on this website relative to 16px
 
-#banner {
+#page_title {
   color: var(--jk-white);
   height: 10em;
-  background-image: url('/assets/aerial-view-architecture-bridges-681335.jpg');
-  background-size: auto 100%;
-  background-position: center;
   font-size: 5em;
-  background-repeat: no-repeat;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 2em;
+}
+
+.background_img {
+    background-image: url('/assets/aerial-view-architecture-bridges-681335.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+    background-size:cover;
+    background-color: var(--jk-darkpurple);
 }

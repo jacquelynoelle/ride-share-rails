@@ -21,7 +21,7 @@
 
   <%= form_with model: @trip, class: "form" do |f|%>
 
-    <%= f.label :date %>
+    <%= f.label :date%>
     <%= f.text_field :date, placeholder: :date, class: "form__input"%>
 
 
@@ -35,7 +35,7 @@
     <%= f.text_field :cost, placeholder: :cost, class: "form__input" %>
 
     <%= f.label :rating %>
-    <%= f.select :rating, ["-", 1, 2, 3, 4, 5], class: "btn" %>
+    <%= f.select :rating, ["-", 1, 2, 3, 4, 5], class: "form__input" %>
 
     <%= f.submit "Save", class: "btn" %>
   <% end %>
