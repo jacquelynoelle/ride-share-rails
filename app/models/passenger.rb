@@ -23,7 +23,7 @@ class Passenger < ApplicationRecord
   end
 
   def start_ride
-    if self.available
+    if self.available || self.available.nil?
       self.available = false # set passenger unavailable
       self.save
       return true

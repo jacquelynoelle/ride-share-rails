@@ -31,7 +31,7 @@ class Driver < ApplicationRecord
   end
 
   def dispatch
-    if self.available
+    if self.available || self.available.nil?
       self.available = false # set chosen driver unavailable
       self.save
       return self.id
