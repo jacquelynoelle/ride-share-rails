@@ -12,7 +12,7 @@ CSV.foreach(DRIVER_FILE, :headers => true) do |row|
   driver.is_active = true
   driver.available = true
   successful = driver.save
-  passenger.image_url = row['image_url']
+  driver.image_url = row['image_url']
   
   if !successful
     driver_failures << driver
