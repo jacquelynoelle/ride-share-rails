@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'home/index', as: 'home'
   root "home#index"
 
-  resources :trips, except: [:new]
+  resources :trips, except: [:new, :create]
 
   resources :drivers
 
