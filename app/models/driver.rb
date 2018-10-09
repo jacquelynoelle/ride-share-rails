@@ -24,7 +24,7 @@ class Driver < ApplicationRecord
   end
 
   def average_rating
-    driven_trips = list_trips
+    driven_trips = list_trips.select { |trip| trip.driver_id == id && trip.rating != nil }
     ratings = driven_trips.map { |trip| trip.rating}
     average_rating = ratings.sum.to_f / ratings.length
     return average_rating.round(1)
